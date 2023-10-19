@@ -1,10 +1,10 @@
 ﻿namespace DemoGenerics.Models
 {
-    public class SandwichMaker3000
+    public class SandwichMaker3000<T> : ISandwichMaker<T>
     {
-        public List<object> CreateList(object exterieur, object interieur)
+        public List<T> FaireUnSandwich(T exterieur, T interieur)
         {
-            var liste = new List<object>();
+            var liste = new List<T>();
             
             liste.Add(exterieur);
             liste.Add(interieur);
@@ -20,22 +20,22 @@
             string stringPain = "pain";
             string stringGarniture = "garniture";
 
-            var sandwichString = sandwichMaker.CreateList(stringPain, stringGarniture);
+            var sandwichString = sandwichMaker.FaireUnSandwich(stringPain, stringGarniture);
             for (int i = 0; i < sandwichString.Count; i++)
             {
                 string s = sandwichString[i];
                 Console.WriteLine(s);
             }
 
-            Pain pain = new Pain();
+            /*Pain pain = new Pain();
             Relish relish = new Relish();
 
-            var sandwichIngredients = sandwichMaker.CreateList(pain, relish);
+            var sandwichIngredients = sandwichMaker.FaireUnSandwich(pain, relish);
             for(int i = 0; i < sandwichIngredients.Count; i++)
             {
                 Ingredient item = sandwichIngredients[i];
                 Console.WriteLine(item);
-            }
+            }*/
 
 
         }
